@@ -4,9 +4,9 @@ int bossHealth = 3000;
 int bossDamage = 50;
 String? bossDefenceType;
 
-List<int> heroesHealth = [300, 250, 200, 250, 200]; 
-List<int> heroesDamage = [20, 25, 30, 30, 15]; 
-List<String> heroesType = ["Berserk", "Magic", "TrickyBastard", "Deku", "Golem"]; 
+List<int> heroesHealth = [300, 250, 200, 250, 200, 250]; 
+List<int> heroesDamage = [20, 25, 30, 30, 15, 30];  
+List<String> heroesType = ["Berserk", "Magic", "TrickyBastard", "Deku", "Golem", "Antman"]; 
 
 int roundNumber = 0;
 bool trickyBastardPlayingDead = false;
@@ -110,14 +110,25 @@ void heroesHits() {
           continue;
         }
       }
+      Random random = new Random();
+        int randomN = random.nextInt(5) + 2;
+      if (heroesType[i] == "Antman") {
+        heroesHealth[5] *= randomN;
+        heroesDamage[5] *= randomN;
+      }
 
       if (bossDefenceType == heroesType[i]) {
         hit = (Random().nextInt(7) + 2) * heroesDamage[i];
         print("Критический урон: $hit");
       }
+      
+      
 
       
       bossHealth -= hit;
+      
+      heroesHealth[5] ~/= randomN;
+      heroesDamage[5] ~/= randomN;
 
       if (heroesHealth[i] <= 0) {
         heroesHealth[i] = 0;
