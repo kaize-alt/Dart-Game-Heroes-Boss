@@ -9,7 +9,7 @@ List<int> heroesDamage = [20, 25, 30, 30, 15];
 List<String> heroesType = ["Berserk", "Magic", "TrickyBastard", "Deku", "Golem"]; 
 
 int roundNumber = 0;
-bool trickyBastardPlayingDead = false;  // Флаг для отслеживания состояния TrickyBastard
+bool trickyBastardPlayingDead = false;
 
 void main() {
   printStatic();
